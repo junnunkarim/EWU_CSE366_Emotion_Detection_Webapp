@@ -1,0 +1,18 @@
+<form method="post">
+    {% csrf_token %}
+
+    <label for="prompt">Enter the prompt:</label>
+    <input type="text" id="answer" name="answer">
+
+    <button type="submit">Submit</button>
+</form>
+
+{% if answer %}
+    <h1>Prompt:</h1>
+    <p>{{ prompt }}</p>
+
+    <h1>Answer:</h1>
+    <p>{{ answer }}</p>
+{% else %}
+    <p>No result available.</p>
+{% endif %}
