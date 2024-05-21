@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+  <link rel="stylesheet" href="{% static 'bootstrap-icons/font/bootstrap-icons.css' %}">
+
+  <style>
+    ::-webkit-scrollbar {
+      width: 8px;
+      padding-left: 20px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background-color: #f1f1f1;
+      border-radius: 20px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background-color: #c3c3c3;
+      border-radius: 20px;
+    }
+
+    .history-container {
+      display: flex;
+      flex-direction: column;
+      height: 88vh;
+    }
+
+    .history {
+      flex: 1;
+      overflow-y: auto;
+    }
+  </style>
+
+  {% block title %}{% endblock title %}
+
+</head>
+
+<body>
+  <nav class="navbar sticky-top bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand text-light" href="">
+        <i class="bi bi-emoji-smile-fill"></i>
+        <strong>Emotion Analysis</strong>
+      </a>
+    </div>
+  </nav>
+
+  <div class="container history-container px-5 mt-4">
+
+    {% block content %}{% endblock content %}
+
+  </div>
+
+  <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var chatHistory = document.getElementById('history');
+      chatHistory.scrollTop = chatHistory.scrollHeight;
+    });
+  </script>
+</body>
+</html>

@@ -1,18 +1,42 @@
-<form method="post">
-    {% csrf_token %}
+{% extends 'detection_app/base.html' %}
 
-    <label for="prompt">Enter the prompt:</label>
-    <input type="text" id="answer" name="answer">
+{% block title %}
+  <title>Emotion Detection</title>
+{% endblock title %}
 
-    <button type="submit">Submit</button>
-</form>
+{% block content %}
+  <!-- prompt history -->
+  <div class="history mb-2 p-4 rounded-5" id="history">
+    {% for item in history %}
+      <div class="fs-5 my-4">
+        <div class="d-grid bg-dark-subtle gap-2 col-6 ms-auto rounded-4">
+          <div class="text-wrap px-3 py-1">
+            {{ item.prompt }}
+          </div>
+        </div>
 
-{% if answer %}
-    <h1>Prompt:</h1>
-    <p>{{ prompt }}</p>
+        <div class="d-grid bg-body-secondary gap-2 col-3 my-4 rounded-4">
+          <div class="text-wrap px-4 py-1">
+            Emotion: {{ item.answer }}
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
 
-    <h1>Answer:</h1>
-    <p>{{ answer }}</p>
-{% else %}
-    <p>No result available.</p>
-{% endif %}
+  <!-- prompt input -->
+  <div class="mb-4">
+    <form action="{% url 'detection_app:home' %}" method="post">
+      {% csrf_token %}
+
+        <div class="input-group bg-body-secondary p-2 rounded-pill">
+          <input class="form-control form-control-lg bg-body-secondary px-4 border-0 rounded-pill" name="prompt" placeholder="Enter your message..." required></input>
+          <button type="submit" class="btn btn-primary btn-lg ms-2 rounded-pill"><i class="bi bi-arrow-up-circle-fill"></i></button>
+        </div>
+
+      </div>
+    </form>
+  </div>
+
+
+{% endblock content %}
