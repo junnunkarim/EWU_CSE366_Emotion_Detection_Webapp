@@ -2,7 +2,7 @@ from django.shortcuts import render
 
 import ollama
 
-from .forms import PromptForm
+# from .forms import PromptForm
 from .models import PromptModel
 
 
@@ -28,6 +28,10 @@ def get_answer_from_model(prompt: str):
 
 
 def get_history():
+    """
+    Get the history of all prompts with replies.
+    """
+
     return PromptModel.objects.all()
 
 
@@ -35,16 +39,21 @@ def get_history():
 # --------------- views --------------- #
 # ------------------------------------- #
 def home(request):
+    # create a dictionary to send data for rendering in the template
     context = {}
     history = get_history()
 
     if request.method == "POST":
+        # get prompt from user
         prompt = request.POST["prompt"]
+        # generate response for the user prompt
         answer = get_answer_from_model(prompt)
 
+        # store the user prompt along with the response in the database
         prompt_answer = PromptModel(prompt=prompt, answer=answer)
         prompt_answer.save()
 
+    # insert history inside dictionary to send it to the template
     context["history"] = history
 
     return render(request, "detection_app/home.html", context)
