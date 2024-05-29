@@ -1,6 +1,6 @@
 from django.shortcuts import render
 
-import ollama
+from ollama import generate
 
 # from .forms import PromptForm
 from .models import PromptModel
@@ -9,22 +9,32 @@ from .models import PromptModel
 # ------------------------------------------------ #
 # --------------- helper functions --------------- #
 # ------------------------------------------------ #
-def get_answer_from_model(prompt: str):
+def get_answer_from_model(text: str):
     """
     Prompt the model and get the answer as output.
     """
+    # for gemma
+    prompt = f"""Analyze the emotion of the text enclosed in square brackets,
+determine if it is Happy, Love, Sadness, Anger or Fear, and return the answer only as
+the corresponding sentiment label 'Happy' or 'Love' or 'Sadness' or 'Anger' or 'Fear'
 
-    response = ollama.chat(
-        model="emotion_analysis_mistral_0.2_7b:latest",
-        messages=[
-            {
-                "role": "user",
-                "content": f"[INST]Analyze the emotion of the text and determine if it is Happy, Love, Sadness, Anger or Fear, and return the answer as the corresponding emotion label 'Happy' or 'Love' or 'Sadness' or 'Anger' or 'Fear'.[/INST]\n### Text: {prompt}\n### Emotion:",
-            },
-        ],
+[{text}] = """.strip()
+
+    response = generate(
+        model="emotion_analysis_gemma_2b_v3.3.0",
+        prompt=prompt,
+        # response will be recieved in a single reply
+        stream=False,
+        options={
+            # max new token count
+            "num_predict": 2,
+            # controls creativity when generating
+            # temperature = 0 means the response is reproducible
+            "temperature": 0,
+        },
     )
 
-    return response["message"]["content"]
+    return response["response"]
 
 
 def get_history():
