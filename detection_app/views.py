@@ -39,9 +39,8 @@ the corresponding sentiment label 'Happy' or 'Love' or 'Sadness' or 'Anger' or '
 
 def get_history():
     """
-    Get the history of all prompts with replies.
+    Get the history of all prompts with response.
     """
-
     return PromptModel.objects.all()
 
 
@@ -51,6 +50,7 @@ def get_history():
 def home(request):
     # create a dictionary to send data for rendering in the template
     context = {}
+    # get history of all prompts with response from database
     history = get_history()
 
     if request.method == "POST":
