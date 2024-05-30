@@ -32,10 +32,10 @@
 ├── docs
 │   ├── cse366_project_details.pdf
 │   └── cse366_project_report_and_viva_guidelines.md
-├── notebooks
-│   ├── finetune_gemma_2b_bangla_emotion_analysis__v1.1.0.ipynb
-│   ├── finetune_gemma_2b_bangla_emotion_analysis__v3.3.1.ipynb
-│   ├── finetune_gemma_2b_bangla_emotion_analysis__v3.4.0.ipynb
-│   └── finetune_gemma_2b_bangla_emotion_analysis__v3.4.1.ipynb
-└────── finetune_mistral_0.2_7b_bangla_emotion_analysis__v0.1.0.ipynb
+└── notebooks
+    ├── finetune_gemma_2b_bangla_emotion_analysis__v1.1.0.ipynb
+    ├── finetune_gemma_2b_bangla_emotion_analysis__v3.3.1.ipynb
+    ├── finetune_gemma_2b_bangla_emotion_analysis__v3.4.0.ipynb
+    ├── finetune_gemma_2b_bangla_emotion_analysis__v3.4.1.ipynb
+    └── finetune_mistral_0.2_7b_bangla_emotion_analysis__v0.1.0.ipynb
 ```
