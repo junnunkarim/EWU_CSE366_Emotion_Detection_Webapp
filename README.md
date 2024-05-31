@@ -3,7 +3,7 @@
 A project about fine-tuning LLMs to detect emotion in Bangla E-Commerce reviews
 
 - University: East West University
-- Course: CSE366 (Database Systems)
+- Course: CSE366 (Artificial Intelligence)
 
 # Directory Structure
 
