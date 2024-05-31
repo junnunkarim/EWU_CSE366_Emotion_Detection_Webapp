@@ -20,7 +20,7 @@ the corresponding sentiment label 'Happy' or 'Love' or 'Sadness' or 'Anger' or '
 [{text}] = """.strip()
 
     response = generate(
-        model="emotion_analysis_gemma_2b_v3.4.0",
+        model="emotion_analysis_gemma_2b__v3.4.0",
         prompt=prompt,
         # response will be recieved in a single reply
         stream=False,

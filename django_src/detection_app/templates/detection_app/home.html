@@ -6,18 +6,24 @@
 
 {% block content %}
   <!-- prompt history -->
-  <div class="history mb-2 p-4 rounded-5" id="history">
+  <div class="self_history mb-2 p-4 rounded-5" id="history">
     {% for item in history %}
       <div class="fs-5 my-4">
-        <div class="d-grid bg-dark-subtle gap-2 col-6 ms-auto rounded-4">
+        <div class="self_history_prompt d-grid gap-2 col-6 ms-auto rounded-4">
           <div class="text-wrap px-3 py-1">
             {{ item.prompt }}
           </div>
         </div>
 
-        <div class="d-grid bg-body-secondary gap-2 col-3 my-4 rounded-4">
-          <div class="text-wrap px-4 py-1">
-            Emotion: {{ item.answer }}
+        <div class="d-flex align-items-center my-4">
+          <div>
+            <i class="border rounded-pill px-2 py-1 bi bi-emoji-smile-fill"></i>
+          </div>
+
+          <div class="self_history_response d-grid gap-2 col-3 rounded-4">
+            <div class="text-wrap px-4 py-1">
+              Emotion: {{ item.answer }}
+            </div>
           </div>
         </div>
       </div>
@@ -29,9 +35,9 @@
     <form action="{% url 'detection_app:home' %}" method="post">
       {% csrf_token %}
 
-        <div class="input-group bg-body-secondary p-2 rounded-pill">
-          <input class="form-control form-control-lg bg-body-secondary px-4 border-0 rounded-pill" name="prompt" placeholder="Enter your message..." required></input>
-          <button type="submit" class="btn btn-primary btn-lg ms-2 rounded-pill"><i class="bi bi-arrow-up-circle-fill"></i></button>
+        <div class="self_input input-group p-2 rounded-pill">
+          <input class="self_input form-control form-control-lg px-4 border-0 rounded-pill" name="prompt" placeholder="Enter your message..." required></input>
+          <button type="submit" class="self_button btn btn-primary btn-lg ms-2 rounded-pill"><i class="bi bi-arrow-up-circle-fill"></i></button>
         </div>
 
       </div>

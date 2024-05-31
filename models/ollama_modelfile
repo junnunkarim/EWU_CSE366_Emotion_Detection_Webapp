@@ -1,0 +1,1 @@
+FROM ./emotion_analysis_gemma_2b__v3.4.0.gguf
