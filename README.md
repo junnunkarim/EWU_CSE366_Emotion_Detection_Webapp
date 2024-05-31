@@ -67,8 +67,8 @@ EWU_CSE366_Emotion_Detection_Webapp
 <summary><b>click here</b></summary>
 
 ## Clone and Installation
-- Install `Python` using your package manager
-- Install `Ollama` following the official repo: [Ollama Github](https://github.com/ollama/ollama)
+- Install `python` using your package manager
+- Install `ollama` following instructions from the official repo: [Ollama Github](https://github.com/ollama/ollama)
 - Create a virtual environment in your preferred directory
 
     ```bash
@@ -114,7 +114,7 @@ EWU_CSE366_Emotion_Detection_Webapp
     cd models/
     ```
 
-- Import the model using `Ollama`
+- Import the model using `ollama`
 
     ```bash
     ollama create "emotion_analysis_gemma_2b__v3.4.0" -f ollama_modelfile
@@ -127,7 +127,7 @@ EWU_CSE366_Emotion_Detection_Webapp
     ```
 
 ## Start Server
-- Open another terminal and start `Ollama` server
+- Open another terminal and start `ollama` server
 
     ```bash
     ollama serve
