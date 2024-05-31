@@ -18,11 +18,14 @@ EWU_CSE366_Emotion_Detection_Webapp
 ├── django_src
 │   ├── db.sqlite3
 │   ├── detection_app
+│   │   ├── __init__.py
 │   │   ├── admin.py
 │   │   ├── apps.py
 │   │   ├── migrations
 │   │   │   ├── 0001_initial.py
+│   │   │   └── __init__.py
 │   │   ├── models.py
+│   │   ├── static
 │   │   ├── templates
 │   │   │   └── detection_app
 │   │   │       ├── base.html
@@ -39,13 +42,19 @@ EWU_CSE366_Emotion_Detection_Webapp
 │   └── manage.py
 ├── docs
 │   ├── cse366_project_details.pdf
+│   ├── cse366_project_report__group_10.pdf
 │   └── cse366_project_report_and_viva_guidelines.md
-└── notebooks
-    ├── finetune_gemma_2b_bangla_emotion_analysis__v1.1.0.ipynb
-    ├── finetune_gemma_2b_bangla_emotion_analysis__v3.3.1.ipynb
-    ├── finetune_gemma_2b_bangla_emotion_analysis__v3.4.0.ipynb
-    ├── finetune_gemma_2b_bangla_emotion_analysis__v3.4.1.ipynb
-    └── finetune_mistral_0.2_7b_bangla_emotion_analysis__v0.1.0.ipynb
+├── models
+│   └── ollama_modelfile
+├── notebooks
+│   ├── finetune_gemma_2b_bangla_emotion_analysis__v1.1.0.ipynb
+│   ├── finetune_gemma_2b_bangla_emotion_analysis__v3.3.1.ipynb
+│   ├── finetune_gemma_2b_bangla_emotion_analysis__v3.4.0.ipynb
+│   ├── finetune_gemma_2b_bangla_emotion_analysis__v3.4.1.ipynb
+│   └── finetune_mistral_0.2_7b_bangla_emotion_analysis__v0.1.0.ipynb
+├── requirements.txt
+└── ss
+    └── bangla_emotion_analysis.png
 ```
 
 </details>
